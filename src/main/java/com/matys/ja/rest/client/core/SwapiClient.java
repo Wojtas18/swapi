@@ -15,6 +15,9 @@ public class SwapiClient {
 	}
 
 	public String getStringResponse(URI uri) {
+		if(uri == null) {
+			throw new NullPointerException("Uri is: " + uri);
+		}
 		WebResource webResource = client.resource(uri);
 		ClientResponse clientResponse = sendRequestAndGetClientResponse(webResource);
 		checkStatus(clientResponse);

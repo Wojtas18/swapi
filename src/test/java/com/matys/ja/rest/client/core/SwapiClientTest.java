@@ -44,4 +44,18 @@ public class SwapiClientTest {
 		//then
 		assertThat(thrown).isInstanceOf(RuntimeException.class);
 	}
+	
+	@Test
+	public void testUriIsNull() {
+		//given
+		SwapiClient swapiClient = new SwapiClient();
+		URI uri = null;
+		//when
+		Throwable thrown = catchThrowable(() -> { 
+			swapiClient.getStringResponse(uri);
+			});
+		//then
+		assertThat(thrown).isInstanceOf(NullPointerException.class);
+	}
+	
 }
