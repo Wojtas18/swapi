@@ -19,10 +19,9 @@ public class Main {
 					.get(ClientResponse.class);
 			String output = response.getEntity(String.class);
 
-			 if (response.getStatus() != 200) {
-			 throw new RuntimeException("Failed : HTTP error code : " +
-			 response.getStatus());
-			 }
+			if (response.getStatus() != 200) {
+				throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
+			}
 
 			// System.out.println("Output from Server .... \n");
 			// System.out.println(output);
